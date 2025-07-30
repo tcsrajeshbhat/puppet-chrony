@@ -4,6 +4,16 @@
 class chrony::config {
   assert_private()
 
+  if $chrony::chronyd_options =~ Array[String] {
+     $options = join($chrony::chronyd_options, ' ')
+      file_line { 'update_chronyd_options':
+       ensure  => present,
+       path    => '/etc/sysconfig/chronyd',
+       line    => "OPTIONS=\"${options}\"",
+       match   => '^OPTIONS=',
+      }
+  }   
+
   file { $chrony::config:
     ensure  => file,
     owner   => 0,

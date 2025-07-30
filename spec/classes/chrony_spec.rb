@@ -314,6 +314,23 @@ describe 'chrony' do
         end
       end
 
+      describe 'chronyd_options' do
+        let(:praram) do
+          {
+            chronyd_options: ['-q', '-t', '10']
+          }
+        end
+        
+        it 'should contain correct file_line resource' do
+           is_expected.to contain_file_line('update_chronyd_options').with(
+             'ensure'  => 'present',
+             'path'    => '/etc/sysconfig/chronyd',
+             'line'    => 'OPTIONS="-q -t 10"',
+             'match'   => '^OPTIONS=',
+           )
+        end
+      end
+    
       describe 'pools' do
         context 'by default' do
           it { expect(config_file_contents).not_to match(%r{^pool}) }

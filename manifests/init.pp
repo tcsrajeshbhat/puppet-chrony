@@ -251,6 +251,8 @@
 #   Sets the threshold for determining whether an estimate might be so unreliable that it should not be used
 # @param acquisitionport
 #   Sets the acquisitionport for client queries
+# @param chronyd_options
+#   Sets the chronyd_options for client
 class chrony (
   Array[Stdlib::IP::Address] $bindaddress                          = [],
   Array[String] $bindcmdaddress                                    = ['127.0.0.1', '::1'],
@@ -331,6 +333,7 @@ class chrony (
   Optional[String]  $ntsntpserver                                  = undef,
   Optional[Integer[0]] $ntsrotate                                  = undef,
   Optional[Integer[1,65535]] $acquisitionport                      = undef,
+  Array $chronyd_options					                                 = [],
 ) {
   if ! $config_keys_manage and $chrony_password != 'unset' {
     fail("Setting \$config_keys_manage false and \$chrony_password at same time in ${module_name} is not possible.")

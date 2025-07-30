@@ -252,7 +252,7 @@
 # @param acquisitionport
 #   Sets the acquisitionport for client queries
 # @param chronyd_options
-#   Sets the chronyd_options for client
+#   Sets the chronyd_options for client as per CIS requirement
 class chrony (
   Array[Stdlib::IP::Address] $bindaddress                          = [],
   Array[String] $bindcmdaddress                                    = ['127.0.0.1', '::1'],

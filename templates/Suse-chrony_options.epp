@@ -1,0 +1,5 @@
+<%- | Array $chronyd_option,
+| -%>
+# This file is managed by puppet
+# DO NOT EDIT
+OPTIONS="<%= $chronyd_option.join(' ') %>"

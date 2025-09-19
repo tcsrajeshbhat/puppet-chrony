@@ -201,6 +201,8 @@ The following parameters are available in the `chrony` class:
 * [`dumpdir`](#-chrony--dumpdir)
 * [`maxupdateskew`](#-chrony--maxupdateskew)
 * [`acquisitionport`](#-chrony--acquisitionport)
+* [`chronyd_config`](#-chrony--chronyd_config)
+* [`chronyd_option`](#-chrony--chronyd_option)
 
 ##### <a name="-chrony--bindaddress"></a>`bindaddress`
 
@@ -861,6 +863,22 @@ Data type: `Optional[Integer[1,65535]]`
 Sets the acquisitionport for client queries
 
 Default value: `undef`
+
+##### <a name="-chrony--chronyd_config"></a>`chronyd_config`
+
+Data type: `Stdlib::Unixpath`
+
+Sets the config file for chronyd options
+
+Default value: `'/etc/sysconfig/chronyd'`
+
+##### <a name="-chrony--chronyd_option"></a>`chronyd_option`
+
+Data type: `Array`
+
+Sets the chronyd_options
+
+Default value: `[]`
 
 ## Data types
 

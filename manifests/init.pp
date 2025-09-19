@@ -253,6 +253,7 @@
 #   Sets the threshold for determining whether an estimate might be so unreliable that it should not be used
 # @param acquisitionport
 #   Sets the acquisitionport for client queries
+##
 class chrony (
   Array[Stdlib::IP::Address] $bindaddress                          = [],
   Array[String] $bindcmdaddress                                    = ['127.0.0.1', '::1'],
